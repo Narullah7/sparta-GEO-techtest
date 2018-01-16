@@ -1,3 +1,9 @@
-<h1> This is where all the XML data will go </h1>
+<h1 style="text-align:center;"><u>List of devices</u></h1>
 
-<%= @devices %>
+<% @devices.search('device').each do |device| %>
+  <div style="text-align:center; border:2px solid black;">
+    <p> Device name: <%= device.search('name') %> </p>
+    <p> Value: <%= device.search('value') %> </p>
+    <p> Notes: <%= device.search('notes') %> </p>
+  </div>
+<% end %>
