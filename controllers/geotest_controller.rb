@@ -11,12 +11,16 @@ class GeoTechTest < Sinatra::Base
   end
 
   get '/' do
-
     @devices = Nokogiri::XML(File.open('././mini-schema.xml'))
-
     erb :'geotechtest/index'
-
   end
+
+  get '/device-names' do
+    @devices = Nokogiri::XML(File.open('././mini-schema.xml'))
+    erb :'geotechtest/search'
+  end
+
+
 
 
 
