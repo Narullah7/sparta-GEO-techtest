@@ -7,12 +7,13 @@
   <input type="submit">
 </form>
 <br><br>
+
 <% @devices.search('device').each do |device| %>
   <% if device.search('name').to_s.downcase.include?(@searching) %>
-  <div style="text-align:center; border:2px solid black;">
-    <p> Device name: <%= device.search('name') %> </p>
-    <p> Value: <%= device.search('value') %> </p>
-    <p> Notes: <%= device.search('notes') %> </p>
-  </div>
-  <% end %>
+    <div style="text-align:center; border:2px solid black;">
+      <p> Device name: <%= device.search('name') %> </p>
+      <p> Value: <%= device.search('value') %> </p>
+      <p> Notes: <%= device.search('notes') %> </p>
+    </div>
+    <% end %>
 <% end %>
