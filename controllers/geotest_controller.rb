@@ -11,14 +11,30 @@ class GeoTechTest < Sinatra::Base
   end
 
   get '/' do
-    @devices = Nokogiri::XML(File.open('././mini-schema.xml'))
-    erb :'geotechtest/index'
+    @device = DeviceXml.new
+    @all_data = @device.get_all_devices
+    # Use the model
+    content_type :json
+    json = []
+
+
+    @all_data.each do |i|
+      hash = {
+        :name => i.element_children[0].text,
+        :value => i.element_children[1].text,
+        :notes => i.element_children[2].text
+      }
+      json.push(hash)
+    end
+
+    json.to_json
+    # erb :'geotechtest/index'
   end
 
-  get '/device-names' do
-    @devices = Nokogiri::XML(File.open('././mini-schema.xml'))
-    @searching = params[:device_search]
-    erb :'geotechtest/search'
+  get '/:name' do
+
+    name = params[:device_name]
+
   end
 
 

@@ -1,5 +1,5 @@
 require 'nokogiri'
-require_relative './geotest_xml.rb'
+require_relative '../models/geotest_xml.rb'
 
 RSpec.configure do |config|
   config.color = true
