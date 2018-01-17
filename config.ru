@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'rspec'
 require 'sinatra/reloader' if development?
 require_relative './controllers/geotest_controller.rb'
 
