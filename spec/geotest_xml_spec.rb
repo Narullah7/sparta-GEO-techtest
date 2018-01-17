@@ -26,7 +26,7 @@ describe "Describe XML device" do
 
   it "should have values less than 100 except the last device 'invalid'" do
     @xml_geo.get_all_devices.each do |i|
-      if i.element_children[0].text === "invalid"
+      if i.element_children[0].text == "invalid"
         expect(i.element_children[1].text.to_i).to be > 100
       else
         expect(i.element_children[1].text.to_i).to be < 100
