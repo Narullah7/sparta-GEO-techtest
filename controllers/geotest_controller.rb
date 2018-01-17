@@ -17,6 +17,7 @@ class GeoTechTest < Sinatra::Base
 
   get '/device-names' do
     @devices = Nokogiri::XML(File.open('././mini-schema.xml'))
+    @searching = params[:device_search]
     erb :'geotechtest/search'
   end
 
